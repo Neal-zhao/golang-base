@@ -1,0 +1,15 @@
+{{ define "book/upload_file.html" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件</title>
+</head>
+<body>
+    <form action="/file/upload" method="post" enctype="multipart/form-data">
+        <input type="file"  name="ycy">
+        <input type="submit" name="需要点击提交么">
+    </form>
+</body>
+</html>
+{{ end }}

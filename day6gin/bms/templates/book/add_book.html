@@ -1,0 +1,17 @@
+{{ define "book/add_book.html"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add book</title>
+</head>
+<body>
+    <h1>新增书本</h1>
+    <form action="/book/add" method="post">
+        <div><label>书名：<input type="text" name="title"></label></div>
+        <div><label>价格：<input type="number" name="price"></label></div>
+        <div><input type="submit" name="提交"></div>
+    </form>
+</body>
+</html>
+{{ end }}

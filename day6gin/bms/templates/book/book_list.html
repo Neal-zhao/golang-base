@@ -1,0 +1,32 @@
+{{define "book/book_list.html"}}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>图书列表</title>
+    </head>
+    <body>
+        <h1>
+            <div>
+                <a href="/book/new">添加书籍</a>
+            </div>
+        </h1>
+        <table style="border: 1px solid palevioletred;">
+            <tr>
+                <th>序列</th>
+                <th>书名</th>
+                <th>价格</th>
+                <th>操作</th>
+            </tr>
+            {{range .data}}
+            <tr>
+                <th>{{.ID}}</th>
+                <th>{{.Title}}</th>
+                <th>{{.Price}}</th>
+                <th><a href="/book/delete?id={{.ID}}">删除书籍</a></th>
+            </tr>
+            {{end}}
+        </table>
+    </body>
+</html>
+{{ end }}
