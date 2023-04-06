@@ -1,0 +1,41 @@
+syntax = "proto3";
+//option go_package = "./proto;userInfo";
+option go_package = "./goodsServer";//生成的路径和文件名
+//写完一行要有一个分号
+//rpc接口，定义rpc服务，生成的接口
+service GoodsService{
+   rpc AddGoods(AddGoodsReq) returns (AddGoodsRes);
+   rpc GetGoods(GetGoodsReq) returns (GetGoodsRes);
+}
+//定义message go中结构体
+message GoodsMode{
+    string title = 1;
+    double price = 2;
+    string content = 3;
+}
+
+// AddGoods 相关
+message AddGoodsReq{
+    //GoodsMode result = 1
+    GoodsMode params = 1
+}
+message AddGoodsRes{
+    string message = 1;
+    bool success = 2;
+}
+//protoc --go_out=plugins=grpc:./ *proto
+
+// GetGoods 相关
+message GetGoodsReq{
+    int32 id = 1;
+}
+//message GetGoodsRes{
+//    string title = 1;
+//    double price = 2;
+//    string content = 3;
+//}
+//切片 repeated 语法
+message GetGoodsRes{
+    repeated GoodsMode result=1
+    //repeated GoodsMode goodsList=1
+}
